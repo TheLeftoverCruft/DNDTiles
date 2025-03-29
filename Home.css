@@ -153,6 +153,14 @@ input{
     cursor: pointer;
     
 }
+.color_tile.open {
+    width: 10vh;
+    height: 10vh;
+    border: 0.4vh solid #ffffff;
+    cursor: pointer;
+    
+
+}
 .fire_tile{
     background-image: url("./Pictures/Fire.avif");
     background-size: cover;
