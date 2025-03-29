@@ -1,0 +1,2 @@
+tile0.0=fire_tile
+tile1.0=water_tile
