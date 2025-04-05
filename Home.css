@@ -1,3 +1,17 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
 body {
     display: flex;
     justify-content: center;
@@ -21,12 +35,46 @@ input{
     height: 5vh;
     font-size: 2vh;
 }
+/*increment button*/
+
+
+
+  .counter-container {
+    
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 10vh;
+  }
+
+  .reset-container {
+    
+    
+  }
+
+  .counter-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .counter-input {
+    font-size: 24px;
+    text-align: center;
+    width: 60px;
+  }
+
+
+
   
 /* grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(10, 100px);
-    grid-template-rows: repeat(10, 100px);
+
     gap: 5px;
     zoom: 100%;
 }
@@ -77,6 +125,7 @@ input{
 #sidebar2.open {
     right: 0;
 }
+
 /* bottom bar */
 .popup-bar {
     display: flex;

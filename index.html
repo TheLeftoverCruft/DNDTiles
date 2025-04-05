@@ -10,6 +10,18 @@
     <title>Tile Color Changer</title>
 </head>
 <body>
+
+    <div class="counter-container">
+        <button class="counter-button" onclick="changeValue(-1)">-</button>
+        <input type="number" id="counterInput" class="counter-input" value="1" onchange="updateCounterFromInput()">
+        <button class="counter-button" onclick="changeValue(1)">+</button>
+  
+    
+      <div class="reset-container">
+        
+        <button class="counter-button" onclick="resetCounter()">Reset</button>
+      </div>
+    </div>
     
     <div onclick="toggleSidebar2()" id="sidebar2" class="sidebar bar">
         <input type="file" id="fileInput" accept=".txt">
@@ -30,7 +42,7 @@
     <div class="grid" id="grid">
     </div>
     <div onclick="toggleSidebar()" id="sidebar" class="sidebar bar">
-        <h2>Elements</h2>
+        <h2 id="elements_title">Elements</h2>
         <ul>
             <li class="color_tile fire_tile" id="fire_tile" onclick="toggleElementsPopup(this.id)">Fire</li>
             <li class="color_tile water_tile" id="water_tile" onclick="toggleElementsPopup(this.id)">Water</li>
