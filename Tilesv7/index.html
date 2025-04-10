@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="Home.css" />
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tile Color Changer</title>
+</head>
+<body>
+
+    <div class="counter-container">
+        <button class="counter-button" onclick="changeValue(-1)">-</button>
+        <input type="number" id="counterInput" class="counter-input" value="1" onchange="updateCounterFromInput()">
+        <button class="counter-button" onclick="changeValue(1)">+</button>
+  
+    
+      <div class="reset-container">
+        
+        <button class="counter-button" onclick="resetCounter()">Reset</button>
+      </div>
+    </div>
+    
+    <div onclick="toggleSidebar2()" id="sidebar2" class="sidebar bar">
+        <input type="file" id="fileInput" accept=".txt">
+    </br>
+        <button onclick="envsave()">Save TXT File</button>
+
+    </div>
+    
+ 
+
+    <div id="characterbar" class="popup-bar bar" onclick="togglePopupBar()">
+        
+        <div><button id="character_create_button"onclick="createCharacter()">Create Character</button></div>
+
+    </div>
+
+    </br>
+    <div class="grid" id="grid">
+    </div>
+    <div onclick="toggleSidebar()" id="sidebar" class="sidebar bar">
+        
+        <ul id="elementgrid">
+            <li class="color_tile fire_tile" id="fire_tile" onclick="toggleElementsPopup(this.id)">Fire</li>
+            <li class="color_tile water_tile" id="water_tile" onclick="toggleElementsPopup(this.id)">Water</li>
+            <li class="color_tile grass_tile" id="grass_tile" onclick="toggleElementsPopup(this.id)">Grass</li>
+            <li class="color_tile sand_tile" id="sand_tile" onclick="toggleElementsPopup(this.id)">Sand</li>
+            <li class="color_tile stone_tile" id="stone_tile" onclick="toggleElementsPopup(this.id)">Stone</li>
+        </ul>
+        <h2 id="elements_title">Elements</h2>
+    </div>
+
+
+
+</body>
+<script type="text/javascript" src="Home.js"></script>
+</html>
+
+

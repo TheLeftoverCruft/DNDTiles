@@ -1,0 +1,9 @@
+Apr 9, 2025
+
+Goal for today is to keep the map in the miiddle of the screen.
+The map stays the same size allowing the user to zoom in if they want.
+
+New Goal. Create two different layers. On the bottome of layer is the grid on 
+the top layer is the subpar and grid width buttons. Done
+
+New goal. Keep usr from zooing in on certain eleemnts

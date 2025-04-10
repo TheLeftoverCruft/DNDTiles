@@ -1,0 +1,35 @@
+Priority Tier 1-10
+
+1. 
+- Zoomed to close in on page open on wbesite
+- Ad tile amount (finished in v6)
+- Sidebar title vertical on sidebar
+
+2.
+- Chance character colour is blank
+- A delete option for both characters and elements
+- make it usable on phone
+
+
+3.
+- Further element options (Architecture,building,furniture,walls,doors)
+
+
+4.
+
+5.
+- Add weather (ambience)
+- elevation
+- making holes
+
+6.
+
+7.
+
+8.
+
+9.
+
+10
+
+Miscelaneuos
