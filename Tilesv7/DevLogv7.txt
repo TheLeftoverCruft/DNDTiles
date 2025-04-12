@@ -7,3 +7,21 @@ New Goal. Create two different layers. On the bottome of layer is the grid on
 the top layer is the subpar and grid width buttons. Done
 
 New goal. Keep usr from zooing in on certain eleemnts
+
+
+Apr 10, 2025
+
+
+Fixed zoom on everything by declaring mopst zero attributes as 0vh in the body
+
+Next problem making it user friendls, mainly labeling each sidebar and making it look good
+
+Apr 11, 2025
+
+Label the sidebars, make it look pretty, and bring the sidebar to the front using z index
+Done
+
+April 12, 2025
+
+Fix blank character colour and allow players to upload an img to character popup
+

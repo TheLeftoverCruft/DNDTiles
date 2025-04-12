@@ -79,6 +79,8 @@ function createTiles(length,width) {
       const circle = document.createElement("div");
       circle.className = "charcircle";
       circle.id = "charcircle" + (i-(length-1)/2).toString() + "." + (k-(width-1)/2).toString();
+      circle.style.width=(tilesize*0.6)+"px"
+      circle.style.height=(tilesize*0.6)+"px"
       tile.appendChild(circle);
     }
   }
@@ -112,35 +114,45 @@ function createTiles(length,width) {
 //     }
 
 // }
-function toggleSidebar() {
+function toggleBar(idname) {
+  var bar = document.getElementById(idname);
+
+  
+
+  
   var popupBar = document.getElementById("characterbar");
   var sidebarleft = document.getElementById("sidebar");
   var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (popupBar.classList.contains("open")) {
+
+  
+  if (!bar.classList.contains("open")&&(popupBar.classList.contains("open")||sidebarleft.classList.contains("open")
+    ||sidebarright.classList.contains("open"))) {
+     setTimeout(() => {
+      console.log(bar.style.zIndex)
+      bar.style.zIndex="4";
+      bar.classList.toggle("open");
+    }, 150);
+  } 
+  else if (!bar.classList.contains("open")){
+    console.log(bar.style.zIndex)
+    bar.style.zIndex="4";
+    bar.classList.toggle("open");
+  }
+
+
+  if (idname!="characterbar"&&popupBar.classList.contains("open")) {
     popupBar.classList.toggle("open");
+    popupBar.style.zIndex="3";
   }
-  if (!sidebarleft.classList.contains("open")) {
+  if (idname!="sidebar"&&sidebarleft.classList.contains("open")) {
     sidebarleft.classList.toggle("open");
+    sidebarleft.style.zIndex="3";
   }
-  if (sidebarright.classList.contains("open")) {
+  if (idname!="sidebar2"&&sidebarright.classList.contains("open")) {
     sidebarright.classList.toggle("open");
+    sidebarleft.style.zIndex="3";
   }
-}
-function toggleSidebar2() {
-  var popupBar = document.getElementById("characterbar");
-  var sidebarleft = document.getElementById("sidebar");
-  var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (popupBar.classList.contains("open")) {
-    popupBar.classList.toggle("open");
-  }
-  if (sidebarleft.classList.contains("open")) {
-    sidebarleft.classList.toggle("open");
-  }
-  if (!sidebarright.classList.contains("open")) {
-    sidebarright.classList.toggle("open");
-  }
+
 }
 
 function readTextFile(file) {
@@ -242,7 +254,7 @@ function envsave() {
   document.body.removeChild(link);
 }
 function createCharacter() {
-  const characterbar = document.getElementById("characterbar");
+  const characterbar = document.getElementById("character_popup");
   let characterpopup = document.createElement("div");
   characterpopup.className = "character";
   let charactername = prompt("Enter the charactername", "Tav");
@@ -256,21 +268,7 @@ function createCharacter() {
   characterpopup.innerHTML = "<p>" + charactername + "</p>";
 }
 
-function togglePopupBar() {
-  var popupBar = document.getElementById("characterbar");
-  var sidebarleft = document.getElementById("sidebar");
-  var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (!popupBar.classList.contains("open")) {
-    popupBar.classList.toggle("open");
-  }
-  if (sidebarleft.classList.contains("open")) {
-    sidebarleft.classList.toggle("open");
-  }
-  if (sidebarright.classList.contains("open")) {
-    sidebarright.classList.toggle("open");
-  }
-}
+
 function toggleCharacterPopup(id) {
   console.log(id);
   var popupBar = document.getElementById(id);
@@ -326,7 +324,7 @@ function movecharacter(i, k) {
   const target = div.querySelector(`.${"open"}`);
   //If everything goes right
   if (target) {
-    console.log("Found element ID:", target.id);
+    console.log("Found element ID:", target.id, "To", i,k);
     const circle = document.getElementById(
       "charcircle" + i.toString() + "." + k.toString()
     );
@@ -405,6 +403,8 @@ function changecolour(i, k) {
     return null;
   }
 }
+
+
 
 //shit i want to run on page open
 updateCounterFromInput()
