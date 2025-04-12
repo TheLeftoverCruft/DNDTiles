@@ -105,17 +105,13 @@ input{
   
 /* grid */
 .grid {
-    
-
-
     display: grid;
-
-    z-index: 1;
-    zoom: 100%;
-    margin-top: 20vh;
-
-    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 .tile {
     display: flex;
