@@ -1,0 +1,721 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+@media (min-width: 768px) {
+body {
+    /* dumb shit to check if all elements vh */
+
+    font-size: 0vh;
+    height: 0vh;
+    width: 0vh;
+    top: 0vh;
+    gap: 0vh;
+    margin: 0vh;
+    padding: 0vh;
+    border: 0vh;
+
+    
+
+    /* acutal for body */
+
+    overflow:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f4f4f4;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial, sans-serif;
+    
+
+}
+ul {
+    list-style-type: none;
+  }
+
+button{
+    width: 10vh;
+    height: 5vh;
+    font-size: 2vh;
+}
+input{
+    width: 10vh;
+    height: 5vh;
+    font-size: 2vh;
+}
+.bar_title:hover {
+    cursor: pointer;
+}
+.bar {
+    z-index: 3;
+}
+
+
+/*increment button*/
+
+
+
+  .counter-container {
+    z-index: 2;
+    
+    position: fixed;
+    top: 2vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vh;
+    margin-left: 11vh;
+    padding-top: 1vh
+  }
+
+
+
+  .counter-button {
+    padding: 1vh 2vh;
+    font-size: 2vh;
+    cursor: pointer;
+    border: 0.1vh solid #999;
+    margin-top: 0.1vh;
+  }
+
+  .counter-input {
+    font-size: 3vh;
+    text-align: center;
+    width: 5vh;
+    border: 0.1vh solid #999;
+    padding: 0.1vh;
+  }
+
+
+
+  
+/* grid */
+.grid {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.tile {
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center; 
+
+    background-color: #ccc;
+    border: solid #999;
+    cursor: pointer;
+    background-size: cover;
+    zoom: 100%;
+    opacity: 1; 
+    
+    
+}
+.tile:hover {
+
+    border: solid #99999900;
+    font-size: 5vh;
+    zoom: 100%;
+    opacity: 0.5; 
+  }
+.charcircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+ 
+    
+    text-align: center;
+
+
+}
+
+/* right sidebar */
+#sidebar2 {
+    position: fixed;
+    top: 0;
+    right: -15vh;
+    width: 20vh;
+    height: 100%;
+    background: #333;
+    color: white;
+    
+    transition: right 0.05s;
+  
+    display: flex;
+    flex-direction: row;       /* Title on the left, content on the right */
+    align-items: center;
+    gap: 2vh;
+  }
+  
+  #sidebar2.open {
+    right: 0;
+  }
+  
+  #settings_title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    font-size: 3vh;
+    background-color: #555;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1vh;
+    margin: 0;
+  }
+  
+  .settings-content {
+    display: flex;
+    flex-direction: column;    /* Stack input and button vertically */
+    justify-content: center;
+    gap: 2vh;
+  }
+  
+
+/* bottom bar */
+.popup-bar {
+    display: flex;
+    flex-direction: column;      /* Stack elements vertically */
+    align-items: flex-start;     /* Align items to the left */
+    justify-content: flex-start; /* Align content to the top */
+    position: fixed;
+    bottom: -13vh;
+    width: 100%;
+    height: 18vh;
+    background: #333;
+    color: white;
+    transition: bottom 0.05s;
+    
+    
+}
+
+.popup-bar.open {
+    bottom: 0vh;
+}
+#character_popup {
+    display: flex;
+    flex-direction: row; 
+
+}
+#character_create_button {
+    margin-top: 2vh;
+    text-align: center;
+}
+
+.character {
+    margin-left: 1vh;
+    margin-top: 4vh;
+    width: 20vh;
+    height: 14vh;
+
+    display: flex;
+    align-items: flex-start;   /* Align content to the top vertically */
+    justify-content: center;   /* Center horizontally */
+
+    padding-top: 1vh;          /* Optional spacing from top */
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    line-height: normal;       /* Avoid vertical centering */
+    transition: margin-top 0.05s;
+}
+.character.open {
+    margin-top:1vh;
+    background: green
+}
+#character_title {
+    margin: 0;
+    font-size: 2.5vh;
+ 
+    width: 100%;
+    text-align: center;
+
+
+
+    font-size: 3vh;
+
+    background-color: #555;
+    padding: 1vh;
+    
+
+
+
+}
+
+/* left sidebar */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -20vh;
+    width: 25vh;
+    height: 100%;
+    background: #333;
+    color: white;
+    transition: left 0.2s;
+    display: flex; /* Flexbox layout */
+    flex-direction: row; /* Horizontal layout */
+    align-items: center;
+    font-size: 3vh;
+   
+}
+
+#sidebar.open {
+    left: 0;
+}
+
+#elementgrid {
+    display: grid;
+    grid-template-columns: repeat(1, 10vh);
+    grid-template-rows: repeat(auto, 10vh);
+    gap: 1vh;
+    padding-left: 5vh;
+    padding-right: 1vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#elements_title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    font-size: 3vh;
+    padding-right: 1vh;
+    background-color: #555;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1vh;
+    margin: 0;
+    margin-left: 4vh;
+}
+
+.color_tile {
+    width: 10vh;
+    height: 10vh;
+    border: 0.1vh solid #999;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.color_tile.open {
+    border: 0.4vh solid #ffffff;
+}
+
+.fire_tile{
+    background-image: url("./Pictures/Fire.avif");
+    background-size: cover;
+    background-color: rgb(229, 4, 4);
+}
+
+.water_tile{
+    background-image: url("./Pictures/Water.jpg");
+    background-size: cover;
+    background-color: rgb(7, 7, 230);
+}
+.grass_tile{
+    background-image: url("./Pictures/Grass.webp");
+    background-size: cover;
+    background-color: rgb(7, 209, 7);
+}
+.sand_tile{
+    background-image: url("./Pictures/Sand.jpeg");
+    background-size: cover;
+    background-color: rgb(161, 161, 10);
+}
+.stone_tile{
+    background-image: url("./Pictures/Stone.jpeg");
+    background-size: cover;
+    background-color: rgb(189, 189, 189);
+}
+.pit_tile{
+    background-image: url("");
+    background-size: cover;
+    background-color: rgb(0, 0, 0);
+}
+.blank_tile{
+    background-image: url("");
+    background-size: cover;
+    background-color: #ccc;
+}
+
+}
+@media (max-width: 768px) {
+
+    body {
+        /* dumb shit to check if all elements vh */
+    
+        font-size: 0vh;
+        height: 0vh;
+        width: 0vh;
+        top: 0vh;
+        gap: 0vh;
+        margin: 0vh;
+        padding: 0vh;
+        border: 0vh;
+    
+        
+    
+        /* acutal for body */
+    
+        overflow:auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 50%;
+        width: 50%;
+        background-color: #f4f4f4;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: Arial, sans-serif;
+        
+    
+    }
+    ul {
+        list-style-type: none;
+      }
+    
+    button{
+        width: 10vh;
+        height: 5vh;
+        font-size: 2vh;
+    }
+    input{
+        width: 10vh;
+        height: 5vh;
+        font-size: 2vh;
+    }
+    .bar_title:hover {
+        cursor: pointer;
+    }
+    .bar {
+        z-index: 3;
+    }
+    
+    
+    /*increment button*/
+    
+    
+    
+      .counter-container {
+        z-index: 2;
+        
+        position: fixed;
+        top: 2vh;
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        margin-left: 11vh;
+        padding-top: 1vh
+      }
+    
+    
+    
+      .counter-button {
+        padding: 1vh 2vh;
+        font-size: 2vh;
+        cursor: pointer;
+        border: 0.1vh solid #999;
+        margin-top: 0.1vh;
+      }
+    
+      .counter-input {
+        font-size: 3vh;
+        text-align: center;
+        width: 5vh;
+        border: 0.1vh solid #999;
+        padding: 0.1vh;
+      }
+    
+    
+    
+      
+    /* grid */
+    .grid {
+        
+    
+    
+        display: grid;
+    
+        z-index: 1;
+        zoom: 100%;
+        margin-top: 20vh;
+    
+        
+    }
+    
+    .tile {
+        display: flex;
+        justify-content: center;  /* centers horizontally */
+        align-items: center; 
+    
+        background-color: #ccc;
+        border: solid #999;
+        cursor: pointer;
+        background-size: cover;
+        zoom: 100%;
+        opacity: 1; 
+        
+        
+    }
+    .tile:hover {
+    
+        border: solid #99999900;
+        font-size: 5vh;
+        zoom: 100%;
+        opacity: 0.5; 
+      }
+    .charcircle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+     
+        
+        text-align: center;
+    
+    
+    }
+    
+    /* right sidebar */
+    #sidebar2 {
+        position: fixed;
+        top: 0;
+        right: -15vh;
+        width: 20vh;
+        height: 100%;
+        background: #333;
+        color: white;
+        
+        transition: right 0.05s;
+      
+        display: flex;
+        flex-direction: row;       /* Title on the left, content on the right */
+        align-items: center;
+        gap: 2vh;
+      }
+      
+      #sidebar2.open {
+        right: 0;
+      }
+      
+      #settings_title {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+        font-size: 3vh;
+        background-color: #555;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1vh;
+        margin: 0;
+      }
+      
+      .settings-content {
+        display: flex;
+        flex-direction: column;    /* Stack input and button vertically */
+        justify-content: center;
+        gap: 2vh;
+      }
+      
+    
+    /* bottom bar */
+    .popup-bar {
+        display: flex;
+        flex-direction: column;      /* Stack elements vertically */
+        align-items: flex-start;     /* Align items to the left */
+        justify-content: flex-start; /* Align content to the top */
+        position: fixed;
+        bottom: -13vh;
+        width: 100%;
+        height: 18vh;
+        background: #333;
+        color: white;
+        transition: bottom 0.05s;
+        
+        
+    }
+    
+    .popup-bar.open {
+        bottom: 0vh;
+    }
+    #character_popup {
+        display: flex;
+        flex-direction: row; 
+    
+    }
+    #character_create_button {
+        margin-top: 2vh;
+        text-align: center;
+    }
+    
+    .character {
+        margin-left: 1vh;
+        margin-top: 4vh;
+        width: 20vh;
+        height: 14vh;
+    
+        display: flex;
+        align-items: flex-start;   /* Align content to the top vertically */
+        justify-content: center;   /* Center horizontally */
+    
+        padding-top: 1vh;          /* Optional spacing from top */
+        color: white;
+        text-align: center;
+        font-size: 2vh;
+        line-height: normal;       /* Avoid vertical centering */
+        transition: margin-top 0.05s;
+    }
+    .character.open {
+        margin-top:1vh;
+        background: green
+    }
+    #character_title {
+        margin: 0;
+        font-size: 2.5vh;
+     
+        width: 100%;
+        text-align: center;
+    
+    
+    
+        font-size: 3vh;
+    
+        background-color: #555;
+        padding: 1vh;
+        
+    
+    
+    
+    }
+    
+    /* left sidebar */
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: -20vh;
+        width: 25vh;
+        height: 100%;
+        background: #333;
+        color: white;
+        transition: left 0.2s;
+        display: flex; /* Flexbox layout */
+        flex-direction: row; /* Horizontal layout */
+        align-items: center;
+        font-size: 3vh;
+       
+    }
+    
+    #sidebar.open {
+        left: 0;
+    }
+    
+    #elementgrid {
+        display: grid;
+        grid-template-columns: repeat(1, 10vh);
+        grid-template-rows: repeat(auto, 10vh);
+        gap: 1vh;
+        padding-left: 5vh;
+        padding-right: 1vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    #elements_title {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        text-align: center;
+        font-size: 3vh;
+        padding-right: 1vh;
+        background-color: #555;
+    
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 1vh;
+        margin: 0;
+        margin-left: 4vh;
+    }
+    
+    .color_tile {
+        width: 10vh;
+        height: 10vh;
+        border: 0.1vh solid #999;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .color_tile.open {
+        border: 0.4vh solid #ffffff;
+    }
+    
+    .fire_tile{
+        background-image: url("./Pictures/Fire.avif");
+        background-size: cover;
+        background-color: rgb(229, 4, 4);
+    }
+    
+    .water_tile{
+        background-image: url("./Pictures/Water.jpg");
+        background-size: cover;
+        background-color: rgb(7, 7, 230);
+    }
+    .grass_tile{
+        background-image: url("./Pictures/Grass.webp");
+        background-size: cover;
+        background-color: rgb(7, 209, 7);
+    }
+    .sand_tile{
+        background-image: url("./Pictures/Sand.jpeg");
+        background-size: cover;
+        background-color: rgb(161, 161, 10);
+    }
+    .stone_tile{
+        background-image: url("./Pictures/Stone.jpeg");
+        background-size: cover;
+        background-color: rgb(189, 189, 189);
+    }
+    .pit_tile{
+        background-image: url("");
+        background-size: cover;
+        background-color: rgb(0, 0, 0);
+    }
+    .blank_tile{
+        background-image: url("");
+        background-size: cover;
+        background-color: #ccc;
+    }
+    
+    
+}
