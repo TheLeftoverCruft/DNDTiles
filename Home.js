@@ -23,25 +23,40 @@ function updateDisplay() {
 function updateCounterFromInput() {
   const inputVal = parseInt(document.getElementById("counterInput").value, 10);
   
-  if (!isNaN(inputVal)&&inputVal>3) {
+  if (!isNaN(inputVal)&&inputVal>3) { 
     counter = inputVal;
-    console.log("check1")
+
   } else {
     counter = 1;
-    console.log("check2")
+
   }
   updateDisplay();
 }
 
 function createTiles(length,width) {
-  const grid = document.getElementById("grid");
-  grid.style.gridTemplateColumns="repeat(" + width+ ", 100px)"
-  grid.style.gridTemplateRows="repeat("+width+", 100px)"
+  tilesize=75
+  gapsize=5
 
+  max=7
+  if (length>max) {
+    gapsize=(gapsize*max/length)
+    tilesize=(tilesize*max/length)
+
+
+    
+  }
+  tilesizevh=tilesize+"px"
+  gapsizevh=gapsize+"px"
+
+
+  const grid = document.getElementById("grid");
+  grid.style.gridTemplateColumns="repeat(" + width+ ", "+tilesizevh+")"
+  grid.style.gridTemplateRows="repeat("+width+", "+tilesizevh+")"
+  grid.style.gap=gapsizevh
 
   try {
     if (grid.getElementsByClassName("tile").length>0) {
-        console.log(grid.getElementsByClassName("tile"))
+
 
         grid.innerHTML = "";
     }
@@ -57,11 +72,29 @@ function createTiles(length,width) {
       tile.addEventListener("click", function () {
         popupbaraction((i-(length-1)/2), (k-(width-1)/2));
       });
+      tile.style.width=tilesizevh
+      tile.style.height=tilesizevh
+      tile.style.borderWidth=gapsize/20+"px"
       grid.appendChild(tile);
       const circle = document.createElement("div");
       circle.className = "charcircle";
-      circle.id = "charcircle" + i.toString() + "." + k.toString();
+      circle.id = "charcircle" + (i-(length-1)/2).toString() + "." + (k-(width-1)/2).toString();
+      circle.style.width=(tilesize*0.6)+"px"
+      circle.style.height=(tilesize*0.6)+"px"
       tile.appendChild(circle);
+      const wall_location = ["top","right","left","bottom","center"];
+      for (let j=0; j<4; j++) {
+      const walls = document.createElement("div");
+      walls.className = "wall "+wall_location[j];
+      walls.id = "wall_"+wall_location[j] + (i-(length-1)/2).toString() + "." + (k-(width-1)/2).toString();
+      walls.addEventListener("click", function () {
+        changewallcolour(wall_location[j], (i-(length-1)/2), (k-(width-1)/2));
+      });
+      tile.appendChild(walls);
+      }
+
+      
+
     }
   }
 
@@ -94,35 +127,90 @@ function createTiles(length,width) {
 //     }
 
 // }
-function toggleSidebar() {
+function toggleBar(idname) {
+  var bar = document.getElementById(idname);
+
+  
+
+  
   var popupBar = document.getElementById("characterbar");
   var sidebarleft = document.getElementById("sidebar");
   var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (popupBar.classList.contains("open")) {
+  var sidebarleft2 = document.getElementById("sidebar3");
+  var turnoff = "";
+  var sidebarleft2opencheck=sidebarleft2.classList.contains("open")
+  
+
+  
+  if (!bar.classList.contains("open")&&(popupBar.classList.contains("open")||sidebarleft.classList.contains("open")
+    ||sidebarright.classList.contains("open")||sidebarleft2.classList.contains("open"))) {
+     
+      if (sidebarleft2opencheck&&idname=="sidebar") {
+        console.log(sidebarleft2opencheck,idname)
+        turnoff="sidebarleft2"
+      }
+
+      setTimeout(() => {
+      console.log(bar.style.zIndex)
+      bar.style.zIndex="4";
+      bar.classList.toggle("open");
+      if (idname=="sidebar3") {
+        console.log("first",idname)
+        sidebarleft.style.zIndex="4";
+      }
+      if (idname=="characterbar") {
+        console.log("first",idname)
+        popupBar.style.zIndex="5";
+      }
+
+    }, 150);
+  } 
+  else if (!bar.classList.contains("open")){
+    console.log(bar.style.zIndex)
+    bar.style.zIndex="4";
+    bar.classList.toggle("open");
+    if (idname=="sidebar3") {
+      console.log("second",idname)
+      sidebarleft.style.zIndex="4";
+    }
+    if (sidebarleft2opencheck&&idname=="sidebar") {
+      console.log(sidebarleft2opencheck,idname)
+      turnoff="sidebarleft2"
+    }
+
+    
+  }
+
+
+  if (idname!="characterbar"&&popupBar.classList.contains("open")) {
+    console.log("closes characterbar");
     popupBar.classList.toggle("open");
+    popupBar.style.zIndex="3";
   }
-  if (!sidebarleft.classList.contains("open")) {
+  if (idname!="sidebar"&&sidebarleft.classList.contains("open")) {
+    console.log("closes sidebar");
     sidebarleft.classList.toggle("open");
+    if (sidebarleft2opencheck) {
+      sidebarleft.style.zIndex="4";
+    }
+    else {
+      sidebarleft.style.zIndex="3";
+    }
   }
-  if (sidebarright.classList.contains("open")) {
+  if (idname!="sidebar2"&&sidebarright.classList.contains("open")) {
+    console.log("closes sidebar2");
     sidebarright.classList.toggle("open");
+    sidebarright.style.zIndex="3";
   }
-}
-function toggleSidebar2() {
-  var popupBar = document.getElementById("characterbar");
-  var sidebarleft = document.getElementById("sidebar");
-  var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (popupBar.classList.contains("open")) {
-    popupBar.classList.toggle("open");
+  if (idname!="sidebar3"&&sidebarleft2.classList.contains("open")&&turnoff!="sidebarleft2") {
+
+    if (turnoff!="sidebarleft2"&&!sidebarleft.classList.contains("open")) {
+      console.log("closes sidebar3");
+    sidebarleft2.classList.toggle("open");
+    sidebarleft2.style.zIndex="3";
+    }
   }
-  if (sidebarleft.classList.contains("open")) {
-    sidebarleft.classList.toggle("open");
-  }
-  if (!sidebarright.classList.contains("open")) {
-    sidebarright.classList.toggle("open");
-  }
+
 }
 
 function readTextFile(file) {
@@ -224,7 +312,7 @@ function envsave() {
   document.body.removeChild(link);
 }
 function createCharacter() {
-  const characterbar = document.getElementById("characterbar");
+  const characterbar = document.getElementById("character_popup");
   let characterpopup = document.createElement("div");
   characterpopup.className = "character";
   let charactername = prompt("Enter the charactername", "Tav");
@@ -238,21 +326,7 @@ function createCharacter() {
   characterpopup.innerHTML = "<p>" + charactername + "</p>";
 }
 
-function togglePopupBar() {
-  var popupBar = document.getElementById("characterbar");
-  var sidebarleft = document.getElementById("sidebar");
-  var sidebarright = document.getElementById("sidebar2");
-  popupBar.classList.toggle("open");
-  if (!popupBar.classList.contains("open")) {
-    popupBar.classList.toggle("open");
-  }
-  if (sidebarleft.classList.contains("open")) {
-    sidebarleft.classList.toggle("open");
-  }
-  if (sidebarright.classList.contains("open")) {
-    sidebarright.classList.toggle("open");
-  }
-}
+
 function toggleCharacterPopup(id) {
   console.log(id);
   var popupBar = document.getElementById(id);
@@ -308,7 +382,7 @@ function movecharacter(i, k) {
   const target = div.querySelector(`.${"open"}`);
   //If everything goes right
   if (target) {
-    console.log("Found element ID:", target.id);
+    console.log("Found element ID:", target.id, "To", i,k);
     const circle = document.getElementById(
       "charcircle" + i.toString() + "." + k.toString()
     );
@@ -387,6 +461,8 @@ function changecolour(i, k) {
     return null;
   }
 }
+
+
 
 //shit i want to run on page open
 updateCounterFromInput()
