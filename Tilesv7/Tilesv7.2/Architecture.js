@@ -4,15 +4,15 @@ function toggleArchitecturePopup(id) {
     walls.classList.toggle("open");
     highlightwalls(id);
   
-    // const divs = document.querySelectorAll(".color_wall");
-    // divs.forEach(function (div) {
-    //   console.log(div);
-    //   console.log(div.id);
-    //   if ((div.id != id) & div.classList.contains("open")) {
-    //     div.classList.toggle("open");
-    //     console.log("check1");
-    //   }
-    // });
+    const divs = document.querySelectorAll(".wall_tile");
+    divs.forEach(function (div) {
+      console.log(div);
+      console.log(div.id);
+      if ((div.id != id) & div.classList.contains("open")) {
+        div.classList.toggle("open");
+        console.log("check1");
+      }
+    });
   }
   function highlightwalls(id) {
     var wallsopencheck = document.getElementById(id);

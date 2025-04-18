@@ -126,3 +126,8 @@
   background-color: #999;
 
 }
+.blankwall_tile{
+  background-image: url("");
+  background-size: cover;
+  background-color: "";
+}
